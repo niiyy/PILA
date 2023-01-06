@@ -1,0 +1,10 @@
+# SERVER
+server/node_modules
+server/dist
+
+# CLIENT
+client/node_modules
+client/dist
+
+# ROOT
+.info.txt

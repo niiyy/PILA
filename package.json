@@ -1,0 +1,14 @@
+{
+  "name": "pila",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/niiyy/PILA.git",
+  "author": "niiyy",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.8.1"
+  },
+  "scripts": {
+    "format": "prettier --write ."
+  }
+}

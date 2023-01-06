@@ -1,0 +1,13 @@
+# SERVER
+server/node_modules
+server/dist
+server/.env
+
+# CLIENT
+client/node_modules
+client/dist
+client/.env
+
+# ROOT
+.info.txt
+node_modules
