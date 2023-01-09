@@ -6,9 +6,13 @@
   "author": "niiyy",
   "license": "MIT",
   "devDependencies": {
+    "@types/react-icons": "^3.0.0",
     "prettier": "^2.8.1"
   },
   "scripts": {
     "format": "prettier --write ."
+  },
+  "dependencies": {
+    "react-router-dom": "^6.6.1"
   }
 }

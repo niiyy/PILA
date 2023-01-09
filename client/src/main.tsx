@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom/client'
 import './sass/index.scss'
 import App from './App'
 
+import { BrowserRouter } from 'react-router-dom'
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 )
