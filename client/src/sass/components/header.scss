@@ -1,0 +1,33 @@
+.main__header {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  padding: 0 30px;
+
+  .left__wrapper {
+    align-items: center;
+
+    img {
+      width: 100px;
+    }
+  }
+
+  .right__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    svg {
+      font-size: 17px;
+    }
+
+    .user__image__wrapper {
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

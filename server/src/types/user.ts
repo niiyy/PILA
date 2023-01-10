@@ -8,3 +8,5 @@ export interface User {
 export type UserRegister = Pick<User, 'email' | 'password' | 'username'> & {
   passwordConfirmation: string
 }
+
+export type UserLogin = Pick<User, 'email' | 'password'>

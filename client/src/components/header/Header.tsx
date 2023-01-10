@@ -1,6 +1,7 @@
 import React from 'react'
 import PilaBlack from '../../assets/pila/pila-black.svg'
 import { VscBell } from 'react-icons/vsc'
+import { RiSettings4Line } from 'react-icons/ri'
 
 const Header = () => {
   return (
@@ -14,9 +15,11 @@ const Header = () => {
           <VscBell />
         </div>
 
+        <RiSettings4Line />
+
         <div className="user__image__wrapper">
           <img
-            src="https://laviedesreines.com/wp-content/uploads/2022/02/Comment-devenir-une-personne-solaire-pour-obtenir-tout-ce-que-vous-voulez-720x540.jpg"
+            src="https://p.favim.com/orig/2018/11/22/girl-profile-picture-pfp-profile-picture-Favim.com-6592935.jpg"
             alt=""
           />
         </div>

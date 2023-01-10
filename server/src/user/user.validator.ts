@@ -1,19 +1,21 @@
-import { User, UserRegister } from 'types/user'
+import { User, UserLogin, UserRegister } from 'types/user'
 import J from 'joi'
-import { RegisterSchema } from './user.schemas'
+import { LoginSchema, RegisterSchema } from './user.schemas'
 import { NextFunction, Request, Response } from 'express'
 
 class _UserValidator {
   constructor() {}
 
-  public validateRegister(req: Request, res: Response, next: NextFunction) {
-    const user = req.body
-
+  public validateRegister(user: UserRegister) {
     const isValid = RegisterSchema.validate(user)
 
-    console.log(isValid)
+    return { isValid: isValid.error ? true : false, error: isValid.error }
+  }
 
-    !isValid.error && next()
+  public validateLogin(user: UserLogin) {
+    const isValid = LoginSchema.validate(user)
+
+    return { isValid: isValid.error ? true : false, error: isValid.error }
   }
 }
 

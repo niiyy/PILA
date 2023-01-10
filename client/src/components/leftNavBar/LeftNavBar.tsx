@@ -1,31 +1,32 @@
 import React from 'react'
 import { VscBell } from 'react-icons/vsc'
 import AsideItem from './components/AsideItem'
+import { FiChevronDown } from 'react-icons/fi'
 
 const LeftNavBar = () => {
   return (
     <aside className="left__aside">
       <header className="aside__header">
         <div className="board__interaction">
-          <div className="board__interaction__left">
+          <div className="interaction__left">
             <img
-              src="https://laviedesreines.com/wp-content/uploads/2022/02/Comment-devenir-une-personne-solaire-pour-obtenir-tout-ce-que-vous-voulez-720x540.jpg"
+              src="https://p.favim.com/orig/2018/11/22/girl-profile-picture-pfp-profile-picture-Favim.com-6592935.jpg"
               alt=""
             />
-            <div className="board__interaction__data">
-              <h2>Apocalypse</h2>
-              <p>Lorem, ipsum.</p>
+            <div className="interaction__data">
+              <h2>Dashboard</h2>
+              <p>Apocalypse.</p>
             </div>
           </div>
 
-          <div className="board__interaction__right">
-            <VscBell />
+          <div className="interaction__right">
+            <FiChevronDown />
           </div>
         </div>
       </header>
 
       <div className="aside__items">
-        <AsideItem />
+        <AsideItem active />
         <AsideItem />
         <AsideItem />
       </div>

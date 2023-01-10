@@ -6,3 +6,8 @@ export const RegisterSchema = J.object({
   username: J.string().min(3).max(40).required().trim(),
   passwordConfirmation: J.any().valid(J.ref('password')).required(),
 })
+
+export const LoginSchema = J.object({
+  email: J.string().email().required().trim().lowercase(),
+  password: J.string().required(),
+})
