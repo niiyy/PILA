@@ -2,6 +2,7 @@
 server/node_modules
 server/dist
 server/.env
+server/pila.logs.log
 
 # CLIENT
 client/node_modules
@@ -11,3 +12,4 @@ client/.env
 # ROOT
 .info.txt
 node_modules
+.rest

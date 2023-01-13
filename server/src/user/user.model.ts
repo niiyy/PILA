@@ -13,6 +13,10 @@ const UserModel = new Schema(
       unique: true,
     },
     password: String,
+    boards: {
+      type: Array,
+      default: [],
+    },
   },
   {
     timestamps: true,

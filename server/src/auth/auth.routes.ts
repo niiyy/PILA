@@ -1,9 +1,10 @@
-import { HttpStatusCode } from '../types/http'
+import { HTTPCode, HTTPCodesTypes } from '../types/http'
 import { Request, Response, Router } from 'express'
 import { isValidObjectId } from 'mongoose'
 import User from '../user/user.model'
 import UserValidator from '../user/user.validator'
 import { logger } from '../utils/logger'
+import AuthService from './auth.service'
 
 const R = Router()
 
@@ -17,10 +18,10 @@ R.post('/register', async (req: Request, res: Response) => {
     passwordConfirmation,
   })
 
-  if (!isDataValid) {
-    return res.status(HttpStatusCode.BAD_REQUEST).json({
+  if (!isDataValid.isValid) {
+    return res.status(HTTPCode.BAD_REQUEST).json({
       ok: false,
-      error: isDataValid,
+      message: isDataValid.error?.message,
     })
   }
 
@@ -31,19 +32,19 @@ R.post('/register', async (req: Request, res: Response) => {
       password,
     })
 
-    res.status(HttpStatusCode.CREATED).json({
+    res.status(HTTPCode.CREATED).json({
       ok: true,
     })
   } catch (error) {
     logger.error(`couldn't create user ${error}`)
-    return res.status(HttpStatusCode.BAD_REQUEST).json({
+    return res.status(HTTPCode.BAD_REQUEST).json({
       ok: false,
-      error: error,
+      message: error,
     })
   }
 })
 
-R.get('/login', (req: Request, res: Response) => {
+R.get('/login', async (req: Request, res: Response) => {
   const { email, password } = req.body
 
   const isDataValid = UserValidator.validateLogin({
@@ -51,10 +52,34 @@ R.get('/login', (req: Request, res: Response) => {
     password,
   })
 
-  if (!isDataValid) {
-    return res.status(HttpStatusCode.BAD_REQUEST).json({
+  if (!isDataValid.isValid) {
+    return res.status(HTTPCode.BAD_REQUEST).json({
       ok: false,
-      error: isDataValid,
+      message: isDataValid.error?.message,
+    })
+  }
+
+  try {
+    const { data, status } = await AuthService.connectUser({
+      email,
+      password,
+    })
+
+    res
+      .cookie(process.env.AUTH_COOKIE_NAME as string, data?.JWT, {
+        httpOnly: true,
+        sameSite: true,
+        secure: true,
+        maxAge: data?.MAX_AGE,
+      })
+      .status(status)
+      .json({
+        ok: true,
+      })
+  } catch (error: any) {
+    res.status(error.status).json({
+      ok: false,
+      message: error.message,
     })
   }
 })

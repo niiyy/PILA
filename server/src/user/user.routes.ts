@@ -3,6 +3,8 @@ import { Request, Response, Router } from 'express'
 const R = Router()
 
 R.get('/', (req: Request, res: Response) => {
+  console.log(res.locals.userID)
+
   res.status(200).send('Hello world from /me')
 })
 

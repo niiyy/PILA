@@ -2,38 +2,27 @@ import express, { Application as ApplicationType } from 'express'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import Routes from '../routes'
+import { passTokenToReq, customHeaders } from '../utils/custom.headers'
 
-class App {
-  APP: ApplicationType | null
-  APP_PORT: number
+const app = express()
 
-  constructor() {
-    this.APP_PORT = (process.env.PORT as unknown as number) || 8080
-    this.APP = null
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN,
+  })
+)
 
-    this.init()
-  }
+app.use(cookieParser())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-  protected init() {
-    this.APP = express()
+app.use(customHeaders)
+app.use(passTokenToReq)
 
-    this.APP.use(
-      cors({
-        origin: process.env.CORS_ORIGIN,
-      })
-    )
+app.use('/api/v1', Routes)
 
-    this.APP.use(cookieParser())
-    this.APP.use(express.json())
-    this.APP.use(express.urlencoded({ extended: true }))
+app.listen(process.env.PORT, () => {
+  console.log(`API STARTED AT PORT ${process.env.PORT}`)
+})
 
-    this.APP.use('/', Routes)
-
-    this.APP.listen(this.APP_PORT, () => {
-      console.log(`API STARTED AT PORT ${this.APP_PORT}`)
-    })
-  }
-}
-
-const Application = new App()
-export default Application
+export default app
