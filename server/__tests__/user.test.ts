@@ -15,7 +15,7 @@ describe('API Test', () => {
   })
 
   it('should get /me', async () => {
-    const res = await request(app).get('/me')
+    const res = await request(app).get('/api/v1/me')
 
     expect(res.statusCode).toBe(200)
   })
