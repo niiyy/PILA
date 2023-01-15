@@ -5,6 +5,14 @@ const BoardModel = new Schema(
     title: {
       type: String,
     },
+    author: {
+      type: Schema.Types.ObjectId,
+      required: true,
+    },
+    users: {
+      type: Schema.Types.Array,
+      default: [],
+    },
   },
   {
     timestamps: true,

@@ -9,21 +9,38 @@ R.get('/', async (req: Request, res: Response, next: NextFunction) => {
   const { _id } = req.body
   const { userID } = res.locals
 
-  console.log(_id)
-
   try {
     const board = await boardService.get({ _id, userID })
+    res.status(HTTPCode.ACCEPTED).json({
+      ok: true,
+      data: board,
+    })
   } catch (error) {
-    logger.error(`couldn't find the user ${error}`)
-    return res.status(HTTPCode.NOT_FOUND).json({
+    logger.error(`couldn't find the board ${error}`)
+    res.status(HTTPCode.NOT_FOUND).json({
       ok: false,
-      message: error,
+      message: 'Board not found !',
     })
   }
 })
 
-R.post('/create', (req: Request, res: Response, next: NextFunction) => {})
+R.post('/create', async (req: Request, res: Response, next: NextFunction) => {
+  const { title } = req.body
+  const { userID } = res.locals
 
-R.put('/update', (req: Request, res: Response, next: NextFunction) => {})
+  try {
+    const board = await boardService.create({ title, userID })
+    return res.status(HTTPCode.CREATED).json({
+      ok: true,
+      data: board,
+    })
+  } catch (error) {
+    logger.error(`couldn't create the board ${error}`)
+    return res.status(HTTPCode.BAD_REQUEST).json({
+      ok: false,
+      message: 'Cant create the board',
+    })
+  }
+})
 
 export default R

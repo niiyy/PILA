@@ -11,17 +11,17 @@ const R = Router()
 R.post('/register', async (req: Request, res: Response) => {
   const { username, email, password, passwordConfirmation } = req.body
 
-  const isDataValid = UserValidator.validateRegister({
+  const { isValid, error } = UserValidator.validateRegister({
     username,
     email,
     password,
     passwordConfirmation,
   })
 
-  if (!isDataValid.isValid) {
+  if (!isValid) {
     return res.status(HTTPCode.BAD_REQUEST).json({
       ok: false,
-      message: isDataValid.error?.message,
+      message: error?.message,
     })
   }
 
@@ -68,8 +68,8 @@ R.get('/login', async (req: Request, res: Response) => {
     res
       .cookie(process.env.AUTH_COOKIE_NAME as string, data?.JWT, {
         httpOnly: true,
-        sameSite: true,
-        secure: true,
+        // sameSite: true,
+        // secure: true,
         maxAge: data?.MAX_AGE,
       })
       .status(status)

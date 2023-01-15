@@ -4,6 +4,8 @@ export interface Board {
   categorys: Category[]
 }
 
+export type BoardCreation = Pick<Board, 'title'>
+
 export interface Category {
   title: string
   cards: Card[]
