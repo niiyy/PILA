@@ -26,9 +26,8 @@ const LeftNavBar = () => {
       </header>
 
       <div className="aside__items">
-        <AsideItem active />
-        <AsideItem />
-        <AsideItem />
+        <AsideItem label="Dashboard" active />
+        <AsideItem label="Settings" />
       </div>
     </aside>
   )

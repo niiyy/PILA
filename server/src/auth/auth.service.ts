@@ -6,6 +6,7 @@ import UserModel from '../user/user.model'
 import { HTTPCode, HTTPCodesTypes } from '../types/http'
 import { PromiseResponse } from 'types/misc'
 import { NextFunction, Request, Response } from 'express'
+import UserValidator from '../user/user.validator'
 
 class AuthService {
   TOKEN_MAX_AGE: number
@@ -66,8 +67,6 @@ class AuthService {
         user.password as string
       )
 
-      console.log(isPasswordMatching)
-
       if (!isPasswordMatching) {
         return reject({
           message: 'password not matching',
@@ -82,6 +81,36 @@ class AuthService {
         status: HTTPCode.OK,
       })
     })
+  }
+
+  public async createUser({
+    username,
+    email,
+    password,
+    passwordConfirmation,
+  }: UserRegister) {
+    const { isValid, error, data } = UserValidator.validateRegister({
+      username,
+      email,
+      password,
+      passwordConfirmation,
+    })
+
+    if (!isValid) {
+      throw new Error('Invalid data')
+    }
+
+    try {
+      const user = await UserModel.create({
+        username: data.username,
+        email: data.email,
+        password: data.password,
+      })
+
+      return user
+    } catch (error) {
+      throw new Error('Error while creating user')
+    }
   }
 }
 

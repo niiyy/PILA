@@ -1,17 +1,18 @@
-import { ValidationError } from 'joi'
 import { BoardCreation } from 'types/board'
-import { boardSchema } from './board.schemas'
+import { Validation } from 'types/misc'
+import { boardCreationSchema } from './board.schemas'
 
 class BoardValidator {
   constructor() {}
 
-  public validateCreation(board: BoardCreation): {
-    isValid: boolean
-    error: ValidationError | undefined
-  } {
-    const isValid = boardSchema.validate(board)
+  public validateCreation(board: BoardCreation): Validation<BoardCreation> {
+    const isValid = boardCreationSchema.validate(board)
 
-    return { isValid: isValid.error ? false : true, error: isValid.error }
+    return {
+      isValid: isValid.error ? false : true,
+      error: isValid.error,
+      data: isValid.value,
+    }
   }
 }
 

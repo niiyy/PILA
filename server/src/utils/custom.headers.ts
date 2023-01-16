@@ -10,11 +10,3 @@ export const customHeaders = (
 
   next()
 }
-
-export const passTokenToReq = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  next()
-}

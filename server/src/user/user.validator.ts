@@ -1,28 +1,29 @@
-import { User, UserLogin, UserRegister } from 'types/user'
-import { ValidationError } from 'joi'
+import { Validation } from 'types/misc'
+import { UserLogin, UserRegister } from 'types/user'
 import { LoginSchema, RegisterSchema } from './user.schemas'
 
-class _UserValidator {
+class UserValidator {
   constructor() {}
 
-  public validateRegister(user: UserRegister): {
-    isValid: boolean
-    error: ValidationError | undefined
-  } {
+  public validateRegister(user: UserRegister): Validation<UserRegister> {
     const isValid = RegisterSchema.validate(user)
 
-    return { isValid: isValid.error ? false : true, error: isValid.error }
+    return {
+      isValid: isValid.error ? false : true,
+      error: isValid.error,
+      data: isValid.value,
+    }
   }
 
-  public validateLogin(user: UserLogin): {
-    isValid: boolean
-    error: ValidationError | undefined
-  } {
+  public validateLogin(user: UserLogin): Validation<UserLogin> {
     const isValid = LoginSchema.validate(user)
 
-    return { isValid: isValid.error ? false : true, error: isValid.error }
+    return {
+      isValid: isValid.error ? false : true,
+      error: isValid.error,
+      data: isValid.value,
+    }
   }
 }
 
-const UserValidator = new _UserValidator()
-export default UserValidator
+export default new UserValidator()

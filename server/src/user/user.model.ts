@@ -1,7 +1,5 @@
-import { NextFunction } from 'express'
-import { Schema, model } from 'mongoose'
+import { model, Schema, Types } from 'mongoose'
 import PasswordService from '../services/password.service'
-import { User } from '../types/user'
 
 const UserModel = new Schema(
   {
@@ -13,17 +11,20 @@ const UserModel = new Schema(
       unique: true,
     },
     password: String,
-    boards: {
-      type: Array,
-      default: [],
-    },
+    boards: [
+      {
+        type: Types.ObjectId,
+        ref: 'board',
+      },
+    ],
   },
   {
     timestamps: true,
   }
 )
-UserModel.pre('save', async function (next) {
+UserModel.pre('save', async function (done) {
   await PasswordService.crypte(this)
-  next()
+  done()
 })
+
 export default model('user', UserModel)

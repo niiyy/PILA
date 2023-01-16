@@ -1,6 +1,5 @@
-class _UserController {
+class UserController {
   constructor() {}
 }
 
-const UserController = new _UserController()
-export default UserController
+export default new UserController()

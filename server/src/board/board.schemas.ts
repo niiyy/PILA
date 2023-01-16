@@ -1,5 +1,5 @@
 import J from 'joi'
 
-export const boardSchema = J.object({
+export const boardCreationSchema = J.object({
   title: J.string().min(2).max(40).required().trim(),
 })

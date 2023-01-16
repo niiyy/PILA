@@ -1,7 +1,5 @@
-import { HTTPCode, HTTPCodesTypes } from '../types/http'
 import { Request, Response, Router } from 'express'
-import { isValidObjectId } from 'mongoose'
-import User from '../user/user.model'
+import { HTTPCode } from '../types/http'
 import UserValidator from '../user/user.validator'
 import { logger } from '../utils/logger'
 import AuthService from './auth.service'
@@ -11,25 +9,12 @@ const R = Router()
 R.post('/register', async (req: Request, res: Response) => {
   const { username, email, password, passwordConfirmation } = req.body
 
-  const { isValid, error } = UserValidator.validateRegister({
-    username,
-    email,
-    password,
-    passwordConfirmation,
-  })
-
-  if (!isValid) {
-    return res.status(HTTPCode.BAD_REQUEST).json({
-      ok: false,
-      message: error?.message,
-    })
-  }
-
   try {
-    const user = await User.create({
+    await AuthService.createUser({
       username,
       email,
       password,
+      passwordConfirmation,
     })
 
     res.status(HTTPCode.CREATED).json({

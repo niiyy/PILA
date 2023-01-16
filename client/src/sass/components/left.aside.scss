@@ -15,8 +15,8 @@
       justify-content: space-between;
       padding: 10px;
       border: $normal-border;
-      box-shadow: $normal-box-shadow;
       border-radius: $normal-border-radius;
+      color: $normal-text-color;
 
       .interaction__left {
         display: flex;
@@ -54,6 +54,7 @@
       gap: 10px;
       border-radius: 15px;
       color: $normal-text-color;
+      font-size: 13px;
 
       &.aside__item--active {
         background-color: $special-color;

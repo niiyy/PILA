@@ -1,7 +1,7 @@
 import db from 'mongoose'
 import { logger } from '../utils/logger'
 
-db.connect(process.env.DB_URI as string, {})
+db.connect(process.env.DB_URI, {})
   .then(({ connections }) =>
     logger.info(`DB: [${connections[0].name}] connected with succes !`)
   )

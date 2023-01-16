@@ -1,17 +1,21 @@
-$background-color: #fff;
+$background-color: #232323;
 $special-color: #5d68fe;
 
 // Text
-$normal-text-color: #999aaf;
-$bold-text-color: #272a53;
+$normal-text-color: #ffffff;
+$bold-text-color: #bdc1ee;
 
 // Border Radius
+$big-border-radius: 20px;
 $normal-border-radius: 15px;
 $medium-border-radius: 10px;
 $small-border-radius: 5px;
 
 // Border
-$normal-border: 1px solid #ebedf3;
+$normal-border: 1px solid rgb(44, 45, 48);
 
 // Box shadow
 $normal-box-shadow: 0 0 5px 0 rgba(231, 233, 238, 0.2);
+
+// Cards
+$card-bg-color: #2c2c2c;

@@ -1,10 +1,8 @@
-import { Board, BoardCreation } from 'types/board'
-import { HTTPCode } from '../types/http'
-import { PromiseResponse } from 'types/misc'
-import userModel from '../user/user.model'
+import { Types } from 'mongoose'
+import { BoardCreation } from 'types/board'
+import UserModel from '../user/user.model'
 import BoardModel from './board.model'
 import boardValidator from './board.validator'
-import { Types } from 'mongoose'
 
 class BoardService {
   constructor() {}
@@ -17,9 +15,9 @@ class BoardService {
     userID: Types.ObjectId
   }): Promise<any> {
     try {
-      const user = await userModel.findOne({ userID })
+      const user = await UserModel.findOne({ userID, boards: { $in: _id } })
 
-      if (!user || !user.boards.includes(_id)) {
+      if (!user) {
         throw new Error(
           'u dont have permission to view this resource or u dont exist !'
         )
@@ -45,9 +43,9 @@ class BoardService {
     userID: Types.ObjectId
   }): Promise<any> {
     try {
-      const user = await userModel.findByIdAndUpdate(
+      const user = await UserModel.findByIdAndUpdate(
         userID,
-        { $push: { boards: boardID } },
+        { $push: { boards: new Types.ObjectId(boardID) } },
         { new: true }
       )
 
@@ -61,7 +59,7 @@ class BoardService {
     title,
     userID,
   }: BoardCreation & { userID: Types.ObjectId }) {
-    const { isValid, error } = boardValidator.validateCreation({
+    const { isValid, data } = boardValidator.validateCreation({
       title,
     })
 
@@ -69,7 +67,7 @@ class BoardService {
       throw new Error('Invalid data')
     }
 
-    const user = await userModel.findOne({
+    const user = await UserModel.findOne({
       _id: userID,
     })
 
@@ -79,12 +77,12 @@ class BoardService {
 
     try {
       const board = await BoardModel.create({
-        title,
-        author: userID,
-        users: [userID],
+        title: data.title,
+        author: new Types.ObjectId(userID),
+        users: [new Types.ObjectId(userID)],
       })
 
-      const userUpdated = await this.addBoardToUser({
+      await this.addBoardToUser({
         boardID: board._id,
         userID,
       })
@@ -92,6 +90,27 @@ class BoardService {
       return board
     } catch (error) {
       throw new Error('An error occured while trying to add the user')
+    }
+  }
+
+  public async delete({
+    _id,
+    userID,
+  }: {
+    _id: Types.ObjectId
+    userID: Types.ObjectId
+  }) {
+    if (!_id) {
+      throw new Error('Invalid Data')
+    }
+
+    try {
+      await BoardModel.findOneAndDelete({
+        _id,
+        author: new Types.ObjectId(userID),
+      })
+    } catch (error) {
+      throw new Error('cant delete the user board')
     }
   }
 }
