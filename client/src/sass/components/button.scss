@@ -1,0 +1,39 @@
+.buttons__wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: none;
+  border-radius: $small-border-radius;
+  color: white;
+  height: 50px;
+  transition: 0.3s;
+  border: none;
+
+  &:hover {
+    background-color: $special-color;
+    cursor: pointer;
+  }
+
+  &.normal {
+    border: $normal-border;
+  }
+
+  &.primary {
+    background-color: $special-color;
+
+    &:hover {
+      background-color: $primary-hover-bg;
+    }
+  }
+
+  &.danger {
+    background-color: $danger-bg-color;
+
+    &:hover {
+      background-color: $danger-hover-bg-color;
+    }
+  }
+}

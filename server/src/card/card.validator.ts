@@ -1,14 +1,16 @@
 import { ValidationError } from 'joi'
-import { BoardCreation } from 'types/board'
-import { Card } from 'types/card'
-import { Validation } from 'types/misc'
-import { cardSchema } from './card.schema'
+import { BoardCreation } from '../types/board'
+import { Card, CardCreation } from '../types/card'
+import { Validation } from '../types/misc'
+import { cardCreationSchema } from './card.schema'
 
 class CardValidator {
   constructor() {}
 
-  public validateCreation(card: Card): Validation<Card> {
-    const isValid = cardSchema.validate(card)
+  public validateCreation(card: CardCreation): Validation<CardCreation> {
+    const isValid = cardCreationSchema.validate(card)
+
+    console.log(isValid)
 
     return {
       isValid: isValid.error ? false : true,

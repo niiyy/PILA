@@ -1,0 +1,19 @@
+.home__container {
+  padding-top: 125px;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+
+    background: radial-gradient(
+      circle,
+      rgba(#06081b, 1) 0%,
+      rgba($background-color, 0) 75%
+    );
+  }
+}

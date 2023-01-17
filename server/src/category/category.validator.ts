@@ -1,11 +1,26 @@
 import { ValidationError, ValidationResult } from 'joi'
 import { BoardCreation } from 'types/board'
-import { CategoryCreation } from 'types/category'
+import { CategoryCreation, CategoryDeletion } from 'types/category'
 import { Validation } from 'types/misc'
-import { categoryCreationSchema } from './category.schemas'
+import {
+  categoryCreationSchema,
+  categoryDeletionSchema,
+} from './category.schemas'
 
 class CategoryValidator {
   constructor() {}
+
+  public validateDeletion(
+    category: CategoryDeletion & { userID: string }
+  ): Validation<CategoryDeletion & { userID: string }> {
+    const isValid = categoryDeletionSchema.validate(category)
+
+    return {
+      isValid: isValid.error ? false : true,
+      error: isValid.error,
+      data: isValid.value,
+    }
+  }
 
   public validateCreation(
     category: CategoryCreation & { boardID: string }

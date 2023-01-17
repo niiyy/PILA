@@ -1,5 +1,5 @@
 import React from 'react'
-import PilaBlack from '../../assets/pila/pila-black.svg'
+import PillaWhite from '../../assets/pila/pila-white.svg'
 import { VscBell } from 'react-icons/vsc'
 import { RiSettings4Line } from 'react-icons/ri'
 
@@ -7,11 +7,15 @@ const Header = () => {
   return (
     <header className="main__header">
       <div className="left__wrapper">
-        <img src={PilaBlack} alt="logo" />
+        <img src={PillaWhite} alt="logo" />
       </div>
 
       <div className="right__wrapper">
-        <div className="notification__container">
+        <div className="buttons__wrapper">
+          <button className="btn primary">Se connecter</button>
+          <button className="btn normal">S'inscrire</button>
+        </div>
+        {/* <div className="notification__container">
           <VscBell />
         </div>
 
@@ -22,7 +26,7 @@ const Header = () => {
             src="https://p.favim.com/orig/2018/11/22/girl-profile-picture-pfp-profile-picture-Favim.com-6592935.jpg"
             alt=""
           />
-        </div>
+        </div> */}
       </div>
     </header>
   )

@@ -1,5 +1,9 @@
 export interface Card {
-  title: string
-  description?: string
-  chips?: string[]
+  content: string
+  chips: string[]
+}
+
+export interface CardCreation extends Pick<Card, 'content' | 'chips'> {
+  categoryID: string
+  boardID: string
 }

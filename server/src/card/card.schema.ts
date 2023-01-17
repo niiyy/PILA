@@ -1,7 +1,8 @@
 import J from 'joi'
 
-export const cardSchema = J.object({
-  title: J.string().min(1).max(40).required().trim(),
-  description: J.string().min(1).max(300).trim(),
-  chips: J.array(),
+export const cardCreationSchema = J.object({
+  content: J.string().min(1).max(300).trim().required(),
+  chips: J.array().default([]),
+  categoryID: J.string().required(),
+  boardID: J.string().required(),
 })

@@ -1,5 +1,5 @@
 import { model, Schema, Types } from 'mongoose'
-import boardModel from '../board/board.model'
+import BoardModel from '../board/board.model'
 
 const CategoryModel = new Schema(
   {
@@ -19,11 +19,29 @@ const CategoryModel = new Schema(
 
 CategoryModel.pre('save', async function (done) {
   try {
-    await boardModel.findOneAndUpdate(
+    await BoardModel.findOneAndUpdate(
       { _id: this.boardID },
       {
         $push: {
           categorys: this._id,
+        },
+      }
+    )
+    done()
+  } catch (error) {
+    done(new Error('Error while creating the catgory'))
+  }
+})
+
+CategoryModel.pre('findOneAndDelete', async function (done) {
+  const { boardID, _id } = this.getFilter()
+
+  try {
+    await BoardModel.findOneAndUpdate(
+      { _id: boardID },
+      {
+        $pull: {
+          categorys: _id,
         },
       }
     )

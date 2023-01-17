@@ -4,9 +4,12 @@ import Board from './components/pages/Board'
 import Boards from './components/pages/Boards'
 import Home from './components/pages/Home'
 
+import CardModal from './components/card/components/CardModal'
+
 const App = () => {
   return (
     <>
+      {/* <CardModal /> */}
       <Header />
       <Routes>
         <Route path="/board/:id" element={<Board />} />

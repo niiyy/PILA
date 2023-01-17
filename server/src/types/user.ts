@@ -5,8 +5,9 @@ export interface User {
   boards: string[]
 }
 
-export type UserRegister = Pick<User, 'email' | 'password' | 'username'> & {
+export interface UserRegister
+  extends Pick<User, 'email' | 'password' | 'username'> {
   passwordConfirmation: string
 }
 
-export type UserLogin = Pick<User, 'email' | 'password'>
+export interface UserLogin extends Pick<User, 'email' | 'password'> {}

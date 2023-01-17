@@ -113,6 +113,31 @@ class BoardService {
       throw new Error('cant delete the user board')
     }
   }
+
+  public async doesBoardHaveUser({
+    boardID,
+    userID,
+  }: {
+    userID: string
+    boardID: string
+  }) {
+    try {
+      const board = await BoardModel.exists({
+        _id: boardID,
+        users: {
+          $in: [userID],
+        },
+      })
+
+      if (!board) {
+        throw new Error('User in board not found !')
+      }
+
+      return board
+    } catch (error) {
+      throw new Error('User cant delete the category')
+    }
+  }
 }
 
 export default new BoardService()

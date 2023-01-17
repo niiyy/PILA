@@ -1,9 +1,41 @@
+import BoardService from '../board/board.service'
+import { CategoryDeletion } from 'types/category'
+import UserModel from 'user/user.model'
 import BoardModel from '../board/board.model'
 import CategoryModel from './category.model'
 import CategoryValidator from './category.validator'
 
 class CategoryService {
   constructor() {}
+
+  public async delete({
+    categoryID,
+    boardID,
+    userID,
+  }: CategoryDeletion & { userID: string }): Promise<any> {
+    const { isValid, error } = CategoryValidator.validateDeletion({
+      categoryID,
+      boardID,
+      userID,
+    })
+
+    if (!isValid) {
+      throw new Error(`Invalid data ${error}`)
+    }
+
+    try {
+      await BoardService.doesBoardHaveUser({ boardID, userID })
+
+      await CategoryModel.findOneAndDelete({
+        _id: categoryID,
+        boardID,
+      })
+
+      return 'All good !'
+    } catch (error) {
+      throw new Error('You cant delete the category')
+    }
+  }
 
   public async create({
     title,

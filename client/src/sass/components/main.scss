@@ -1,0 +1,44 @@
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+
+  h1 {
+    font-weight: 900;
+    font-size: 5rem;
+
+    background: linear-gradient(to top, black 0%, $normal-text-color 100%);
+    padding: 20px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  span {
+    font-weight: 100;
+    width: 1000px;
+    text-align: center;
+    line-height: 20px;
+  }
+
+  .special {
+    font-weight: 900;
+    font-size: 5rem;
+    background: linear-gradient(to top, black 0%, $special-color 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .buttons__wrapper {
+    margin-top: 50px;
+  }
+
+  img {
+    margin-top: 50px;
+    border-radius: 30px;
+    width: 1000px;
+    transform: skewX(-0.01turn);
+    border: $normal-border;
+  }
+}

@@ -5,4 +5,9 @@ export interface Category {
   cards: Card[]
 }
 
-export type CategoryCreation = Pick<Category, 'title'>
+export interface CategoryCreation extends Pick<Category, 'title'> {}
+
+export interface CategoryDeletion {
+  categoryID: string
+  boardID: string
+}

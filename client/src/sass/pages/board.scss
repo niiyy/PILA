@@ -26,10 +26,14 @@
         gap: 15px;
         color: white;
 
+        .icon__wrapper {
+          background-color: $special-color;
+        }
+
         h1 {
           font-weight: 600;
-          color: $special-color;
-          letter-spacing: 0.5px;
+          letter-spacing: 1px;
+          color: $secondary-text-color;
         }
       }
 
@@ -48,7 +52,7 @@
             color: white;
 
             &:hover:not(.board__header__right__order--active) {
-              background-color: rgba($special-color, 0.2);
+              background-color: $primary-hover-bg;
             }
 
             &.board__header__right__order--active {
@@ -94,7 +98,6 @@
           border: $normal-border;
           border-radius: $small-border-radius;
           color: $bold-text-color;
-          background-color: $card-bg-color;
 
           h2 {
             font-weight: 700;
@@ -104,63 +107,7 @@
         .board__category__content {
           display: flex;
           flex-direction: column;
-          gap: 20px;
-
-          .board__card {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            border: $normal-border;
-            border-radius: $small-border-radius;
-            width: 350px;
-            background-color: $card-bg-color;
-
-            &:hover {
-              cursor: grab;
-            }
-
-            .board__card__chips__wrapper {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 5px;
-
-              .card__chips {
-                padding: 4px;
-                background-color: rgba(red, 0.1);
-                font-size: 12px;
-                color: red;
-                font-weight: 400;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                border-radius: $small-border-radius;
-              }
-            }
-
-            .card__content {
-              display: flex;
-              flex-direction: column;
-              user-select: none;
-
-              .card__title {
-                margin-top: 5px;
-                color: $bold-text-color;
-                font-weight: 800;
-                font-size: 15px;
-              }
-
-              .card__description {
-                margin-top: 5px;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                color: #8a8ca1;
-                font-size: 14px;
-                font-weight: 400;
-              }
-            }
-          }
+          gap: 10px;
         }
       }
     }

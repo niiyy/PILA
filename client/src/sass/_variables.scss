@@ -1,8 +1,9 @@
-$background-color: #232323;
+$background-color: #03040d;
 $special-color: #5d68fe;
 
 // Text
 $normal-text-color: #ffffff;
+$secondary-text-color: #8f91a1;
 $bold-text-color: #bdc1ee;
 
 // Border Radius
@@ -12,10 +13,23 @@ $medium-border-radius: 10px;
 $small-border-radius: 5px;
 
 // Border
-$normal-border: 1px solid rgb(44, 45, 48);
+$normal-border: 2px solid rgb(44, 45, 48);
 
 // Box shadow
 $normal-box-shadow: 0 0 5px 0 rgba(231, 233, 238, 0.2);
+$box-shadow-color: rgba($special-color, 0.05);
 
 // Cards
-$card-bg-color: #2c2c2c;
+$card-bg-color: linear-gradient(
+  90deg,
+  rgb(37, 35, 35) 0%,
+  rgba(255, 255, 255, 0) 100%
+);
+$element-bg-color: #151414;
+
+// Hovers
+$primary-hover-bg: #424cdc;
+
+// Button
+$danger-bg-color: red;
+$danger-hover-bg-color: rgb(251, 79, 79);

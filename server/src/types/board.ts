@@ -7,4 +7,4 @@ export interface Board {
   categorys: Category[]
 }
 
-export type BoardCreation = Pick<Board, 'title'>
+export interface BoardCreation extends Pick<Board, 'title'> {}

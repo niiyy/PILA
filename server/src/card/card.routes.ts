@@ -1,15 +1,28 @@
 import { NextFunction, Request, Response, Router } from 'express'
-import { HTTPCode } from 'types/http'
+import { HTTPCode } from '../types/http'
 import cardService from './card.service'
 
 const R = Router()
 
-R.post('/', (req: Request, res: Response, next: NextFunction) => {
+R.post('/', async (req: Request, res: Response, next: NextFunction) => {
   const { userID } = res.locals
-  const { title, description, chips } = req.body
+  const { content, chips, categoryID, boardID } = req.body
+
   try {
-    cardService.create({ title, description, chips, userID })
+    const card = await cardService.create({
+      content,
+      chips,
+      categoryID,
+      userID,
+      boardID,
+    })
+
+    res.status(HTTPCode.CREATED).json({
+      ok: true,
+      data: card,
+    })
   } catch (error) {
+    console.log(error)
     res.status(HTTPCode.BAD_REQUEST).send({
       ok: false,
       message: 'Cant create a card',
