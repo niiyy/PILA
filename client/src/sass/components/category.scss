@@ -1,0 +1,37 @@
+.board__category {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+
+  .category__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+    color: $bold-text-color;
+
+    .category__header__right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .category__color {
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+      }
+
+      h2 {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .category__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

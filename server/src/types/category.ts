@@ -11,3 +11,11 @@ export interface CategoryDeletion {
   categoryID: string
   boardID: string
 }
+
+export interface CategoryUpdate {
+  categoryID: string
+  boardID: string
+  data: {
+    title: string
+  }
+}

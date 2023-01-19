@@ -1,10 +1,15 @@
 import { ValidationError, ValidationResult } from 'joi'
 import { BoardCreation } from 'types/board'
-import { CategoryCreation, CategoryDeletion } from 'types/category'
+import {
+  CategoryCreation,
+  CategoryDeletion,
+  CategoryUpdate,
+} from 'types/category'
 import { Validation } from 'types/misc'
 import {
   categoryCreationSchema,
   categoryDeletionSchema,
+  categoryUpdateSchema,
 } from './category.schemas'
 
 class CategoryValidator {
@@ -26,6 +31,16 @@ class CategoryValidator {
     category: CategoryCreation & { boardID: string }
   ): Validation<CategoryCreation & { boardID: string }> {
     const isValid = categoryCreationSchema.validate(category)
+
+    return {
+      isValid: isValid.error ? false : true,
+      error: isValid.error,
+      data: isValid.value,
+    }
+  }
+
+  public validateUpdate(category: CategoryUpdate): Validation<CategoryUpdate> {
+    const isValid = categoryUpdateSchema.validate(category)
 
     return {
       isValid: isValid.error ? false : true,

@@ -1,0 +1,10 @@
+.boards__container {
+  min-height: calc(100vh - 80px);
+
+  .boards__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 10px;
+  }
+}

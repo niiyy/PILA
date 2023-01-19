@@ -1,10 +1,12 @@
-$background-color: #03040d;
+// $background-color: #04050e;
+$background-color: #161618;
 $special-color: #5d68fe;
 
 // Text
 $normal-text-color: #ffffff;
 $secondary-text-color: #8f91a1;
 $bold-text-color: #bdc1ee;
+$special-text-color: $special-color;
 
 // Border Radius
 $big-border-radius: 20px;
@@ -13,7 +15,8 @@ $medium-border-radius: 10px;
 $small-border-radius: 5px;
 
 // Border
-$normal-border: 2px solid rgb(44, 45, 48);
+$normal-border: 2px solid rgb(26, 27, 29);
+$white-border: 1px solid rgba(white, 0.1);
 
 // Box shadow
 $normal-box-shadow: 0 0 5px 0 rgba(231, 233, 238, 0.2);
@@ -22,10 +25,11 @@ $box-shadow-color: rgba($special-color, 0.05);
 // Cards
 $card-bg-color: linear-gradient(
   90deg,
-  rgb(37, 35, 35) 0%,
-  rgba(255, 255, 255, 0) 100%
+  rgba(255, 255, 255, 0.02) 0%,
+  rgba(0, 0, 0, 0) 100%
 );
-$element-bg-color: #151414;
+$element-bg-color: rgb(21, 19, 19);
+$card-border: 1px solid rgb(33, 34, 36);
 
 // Hovers
 $primary-hover-bg: #424cdc;
@@ -33,3 +37,7 @@ $primary-hover-bg: #424cdc;
 // Button
 $danger-bg-color: red;
 $danger-hover-bg-color: rgb(251, 79, 79);
+
+// Input
+$input-bg-color: rgb(26, 24, 24);
+$input-focus-border: 1px solid $special-color;

@@ -83,17 +83,11 @@ class AuthService {
     })
   }
 
-  public async createUser({
-    username,
-    email,
-    password,
-    passwordConfirmation,
-  }: UserRegister) {
+  public async createUser({ username, email, password }: UserRegister) {
     const { isValid, error, data } = UserValidator.validateRegister({
       username,
       email,
       password,
-      passwordConfirmation,
     })
 
     if (!isValid) {

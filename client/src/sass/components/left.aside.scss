@@ -50,16 +50,18 @@
     gap: 5px;
 
     .aside__item {
+      cursor: pointer;
       padding: 25px 15px;
       display: flex;
       gap: 10px;
       border-radius: 15px;
       color: $normal-text-color;
       font-size: 13px;
+      letter-spacing: 0.5px;
 
       &.aside__item--active {
+        font-weight: 700;
         background-color: $special-color;
-        color: white;
       }
     }
   }

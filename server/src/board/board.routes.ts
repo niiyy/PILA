@@ -26,7 +26,7 @@ R.get('/', async (req: Request, res: Response) => {
   }
 })
 
-R.post('/create', async (req: Request, res: Response) => {
+R.post('/', async (req: Request, res: Response) => {
   const { title } = req.body
   const { userID } = res.locals
 
@@ -45,7 +45,27 @@ R.post('/create', async (req: Request, res: Response) => {
   }
 })
 
-R.delete('/delete', async (req: Request, res: Response, next: NextFunction) => {
+R.put('/', async (req: Request, res: Response) => {
+  const { data, boardID } = req.body
+  const { userID } = res.locals
+
+  try {
+    const board = await BoardService.update({ data, userID, boardID })
+
+    res.status(HTTPCode.CREATED).json({
+      ok: true,
+      data: board,
+    })
+  } catch (error) {
+    logger.error(`couldn't update the board ${error}`)
+    res.status(HTTPCode.BAD_REQUEST).json({
+      ok: false,
+      message: 'Cant update the board',
+    })
+  }
+})
+
+R.delete('/', async (req: Request, res: Response, next: NextFunction) => {
   const { _id } = req.body
   const { userID } = res.locals
 

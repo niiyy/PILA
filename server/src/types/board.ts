@@ -8,3 +8,10 @@ export interface Board {
 }
 
 export interface BoardCreation extends Pick<Board, 'title'> {}
+
+export interface BoardUpdate {
+  boardID: string
+  data: {
+    title: string
+  }
+}

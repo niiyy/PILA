@@ -6,8 +6,6 @@ export interface User {
 }
 
 export interface UserRegister
-  extends Pick<User, 'email' | 'password' | 'username'> {
-  passwordConfirmation: string
-}
+  extends Pick<User, 'email' | 'password' | 'username'> {}
 
 export interface UserLogin extends Pick<User, 'email' | 'password'> {}

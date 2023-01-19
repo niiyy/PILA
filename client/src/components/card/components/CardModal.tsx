@@ -1,6 +1,8 @@
 import React from 'react'
-import { IoCloseOutline } from 'react-icons/io5'
+import { IoCloseOutline, IoCloudyNight } from 'react-icons/io5'
 import Button from '../../button/Button'
+import ButtonsGroup from '../../button/components/ButtonsGroup'
+import TextArea from '../../input/TextArea'
 
 const CradModal = () => {
   return (
@@ -14,11 +16,16 @@ const CradModal = () => {
 
         <div className="body__container">
           <div className="content__wrapper">
-            <textarea></textarea>
+            <TextArea
+              placeholder="Contenu"
+              Icon={<IoCloudyNight />}
+              label="Contenu"
+            />
           </div>
 
           <footer className="card__modal__footer">
             <Button colorType="danger" label="Supprimer" />
+            <Button colorType="primary" label="Mettre a jour" />
           </footer>
         </div>
       </section>

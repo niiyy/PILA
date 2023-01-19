@@ -1,0 +1,40 @@
+.auth__container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .authform__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 50px;
+    width: 400px;
+    background: $element-bg-color;
+    border-radius: $normal-border-radius;
+
+    .input__wrapper {
+      width: 100%;
+    }
+
+    .authform__footer {
+      display: flex;
+      margin-top: 30px;
+      width: 100%;
+
+      span {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 100;
+
+        &.special {
+          color: $special-text-color;
+          cursor: pointer;
+          font-weight: 600;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

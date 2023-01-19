@@ -1,0 +1,59 @@
+.textarea__wrapper {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 7.5px;
+
+  label {
+    color: $secondary-text-color;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+  .body {
+    background: $input-bg-color;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    border-radius: $medium-border-radius;
+    justify-content: space-between;
+    transition: 0.3s;
+    position: relative;
+
+    svg {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+    &:has(textarea:focus) {
+      outline: $input-focus-border;
+    }
+
+    textarea {
+      color: white;
+      background: none;
+      border: none;
+      flex: 1;
+      height: 100px;
+      resize: none;
+
+      &::-webkit-scrollbar {
+        width: 3px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: none;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $special-color;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

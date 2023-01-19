@@ -1,0 +1,29 @@
+.checklist__container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .checklist__item {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+
+    &.--checked {
+      color: rgb(0, 255, 0);
+    }
+
+    span {
+      font-size: 12px;
+      font-weight: 100;
+    }
+
+    .checklist__item__icon {
+      padding: 3px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+    }
+  }
+}

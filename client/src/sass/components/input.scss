@@ -1,0 +1,39 @@
+.input__wrapper {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 7.5px;
+
+  label {
+    color: $secondary-text-color;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+  .body {
+    background-color: $input-bg-color;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    border-radius: $medium-border-radius;
+    justify-content: space-between;
+    transition: 0.3s;
+
+    &:has(input:focus) {
+      outline: $input-focus-border;
+    }
+
+    input {
+      color: white;
+      height: 30px;
+      background: none;
+      border: none;
+      flex: 1;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

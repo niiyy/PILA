@@ -1,9 +1,10 @@
 import BoardService from '../board/board.service'
-import { CategoryDeletion } from 'types/category'
+import { CategoryDeletion, CategoryUpdate } from 'types/category'
 import UserModel from 'user/user.model'
 import BoardModel from '../board/board.model'
 import CategoryModel from './category.model'
 import CategoryValidator from './category.validator'
+import boardService from '../board/board.service'
 
 class CategoryService {
   constructor() {}
@@ -70,6 +71,39 @@ class CategoryService {
       return board
     } catch (error) {
       throw new Error('An error occured while trying to add the user')
+    }
+  }
+
+  public async update({
+    categoryID,
+    data: CategoryData,
+    userID,
+    boardID,
+  }: CategoryUpdate & { userID: string }) {
+    const { isValid, data } = CategoryValidator.validateUpdate({
+      data: CategoryData,
+      categoryID,
+      boardID,
+    })
+
+    if (!isValid) {
+      throw new Error('Invalid data')
+    }
+
+    try {
+      await boardService.doesBoardHaveUser({
+        boardID,
+        userID,
+      })
+
+      const updatedCategory = CategoryModel.findOneAndUpdate({
+        _id: categoryID,
+        title: data.data.title,
+      })
+
+      return updatedCategory
+    } catch (error) {
+      throw new Error('Cant update the category')
     }
   }
 }

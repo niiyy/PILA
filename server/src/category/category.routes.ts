@@ -23,6 +23,31 @@ R.post('/', async (req: Request, res: Response) => {
   }
 })
 
+R.put('/', async (req: Request, res: Response, next: NextFunction) => {
+  const { userID } = res.locals
+  const { categoryID, boardID, data } = req.body
+
+  try {
+    const category = await CategoryService.update({
+      categoryID,
+      data,
+      userID,
+      boardID,
+    })
+
+    res.status(HTTPCode.ACCEPTED).json({
+      ok: true,
+      data: category,
+    })
+  } catch (error) {
+    console.log(error)
+    res.status(HTTPCode.BAD_REQUEST).send({
+      ok: false,
+      message: 'Cant update a category',
+    })
+  }
+})
+
 R.delete('/', async (req: Request, res: Response) => {
   const { categoryID, boardID } = req.body
   const { userID } = res.locals

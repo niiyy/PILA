@@ -3,6 +3,21 @@
   height: calc(100vh - 80px);
   overflow: hidden;
 
+  &::before {
+    content: '';
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+
+    background: radial-gradient(
+      circle,
+      rgba(white, 0.03) 0%,
+      rgba($background-color, 0) 75%
+    );
+  }
+
   .left__aside {
     width: 250px;
   }
@@ -45,7 +60,7 @@
 
           .board__header__right__order {
             padding: 15px;
-            border-radius: $big-border-radius;
+            border-radius: $normal-border-radius;
             cursor: pointer;
             transition: 0.3s;
             font-size: 15px;
@@ -83,31 +98,75 @@
       &::-webkit-scrollbar-thumb {
         background: $special-color;
       }
+    }
+  }
+}
 
-      .board__category {
+.board__card__item {
+  width: 200px;
+  height: 100px;
+  border-radius: $normal-border-radius;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $element-bg-color;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+
+  &.create {
+    background: none;
+    outline: $normal-border;
+    color: lightblue;
+    font-size: 20px;
+  }
+}
+
+.create__board__modal__container {
+  background-color: rgba(black, 0.4);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .board__modal {
+    border-radius: $normal-border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    background: $element-bg-color;
+    width: 500px;
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .body__container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px;
+      gap: 50px;
+
+      .content__wrapper {
+        .input__wrapper {
+          width: 100%;
+        }
+      }
+
+      footer {
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        height: 100%;
+        gap: 5px;
 
-        .board__category__header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 15px 10px;
-          border: $normal-border;
-          border-radius: $small-border-radius;
-          color: $bold-text-color;
-
-          h2 {
-            font-weight: 700;
-          }
-        }
-
-        .board__category__content {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
+        .btn {
+          width: 100%;
         }
       }
     }

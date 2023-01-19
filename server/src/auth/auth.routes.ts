@@ -7,14 +7,13 @@ import AuthService from './auth.service'
 const R = Router()
 
 R.post('/register', async (req: Request, res: Response) => {
-  const { username, email, password, passwordConfirmation } = req.body
+  const { username, email, password } = req.body
 
   try {
     await AuthService.createUser({
       username,
       email,
       password,
-      passwordConfirmation,
     })
 
     res.status(HTTPCode.CREATED).json({

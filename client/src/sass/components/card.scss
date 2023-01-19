@@ -3,10 +3,12 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  border: $normal-border;
-  border-radius: $normal-border-radius;
+  border: $card-border;
+  border-radius: $medium-border-radius;
   width: 350px;
-  background: $element-bg-color;
+  background: $card-bg-color;
+
+  user-select: none;
 
   &:hover {
     cursor: grab;
@@ -18,13 +20,14 @@
     gap: 5px;
 
     .card__chips {
+      background-color: rgba(red, 0.1);
       padding: 4px;
-      background-color: rgba(red, 1);
-      font-size: 12px;
-      font-weight: 900;
+      font-size: 10px;
+      font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       border-radius: $small-border-radius;
+      color: red;
     }
   }
 
@@ -66,13 +69,13 @@
 
   .card__modal__container {
     width: 500px;
-    height: 500px;
-    background-color: rgba($element-bg-color, 0.5);
+    background-color: $element-bg-color;
     padding: 20px;
     border-radius: $normal-border-radius;
     display: flex;
     flex-direction: column;
     border: $normal-border;
+    gap: 20px;
 
     .card__modal__header {
       display: flex;
@@ -84,7 +87,6 @@
     }
 
     .body__container {
-      margin-top: 20px;
       width: 100%;
       flex: 1;
       flex-direction: column;
@@ -92,20 +94,83 @@
       justify-content: space-between;
 
       .content__wrapper {
-        width: 100%;
-
-        textarea {
+        .textarea__wrapper {
           width: 100%;
-          resize: none;
-          color: black;
         }
       }
-
       .card__modal__footer {
+        display: flex;
+        gap: 5px;
+        margin-top: 20px;
+
         .btn {
-          width: 100%;
+          flex: 1;
         }
       }
+    }
+  }
+}
+
+.card__example {
+  width: 300px;
+  height: 275px;
+  border-radius: $normal-border-radius;
+  overflow: hidden;
+  padding: 10px;
+  background-color: rgba(white, 0.05);
+  border: $white-border;
+
+  font-weight: 100;
+
+  .card__header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+    .chips__wrapper {
+      display: flex;
+      gap: 5px;
+
+      .chips {
+        display: flex;
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: $small-border-radius;
+        font-weight: 600;
+
+        &.yellow {
+          background-color: rgba(lightblue, 0.3);
+          color: lightblue;
+        }
+
+        &.pink {
+          background-color: rgba(chocolate, 0.3);
+          color: chocolate;
+        }
+      }
+    }
+  }
+
+  .card__content {
+    padding: 10px 0;
+
+    p {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  footer {
+    padding: 20px 0;
+
+    .checked__wrapper {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 1px solid grey;
     }
   }
 }

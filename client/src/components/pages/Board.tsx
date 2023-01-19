@@ -2,8 +2,7 @@ import LeftNavBar from '../leftNavBar/LeftNavBar'
 import { VscBell, VscListFilter } from 'react-icons/vsc'
 import { RiDashboardLine, RiMoreFill } from 'react-icons/ri'
 import { RxDashboard } from 'react-icons/rx'
-import { useDrag } from 'react-dnd'
-import Card from '../card/Card'
+import Category from '../category/Category'
 
 const Board = () => {
   return (
@@ -32,18 +31,9 @@ const Board = () => {
         </header>
 
         <div className="board__cards__container">
-          <div className="board__category">
-            <header className="board__category__header">
-              <div className="board__category__header__right">
-                <h2>Finished</h2>
-              </div>
-            </header>
-
-            <div className="board__category__content">
-              <Card />
-              <Card />
-            </div>
-          </div>
+          <Category data={{ color: 'lightblue', title: 'Idée' }} />
+          <Category data={{ color: 'yellow', title: 'En cours' }} />
+          <Category data={{ color: 'green', title: 'Fini' }} />
         </div>
       </div>
     </article>

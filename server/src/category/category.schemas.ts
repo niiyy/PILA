@@ -10,3 +10,11 @@ export const categoryDeletionSchema = J.object({
   boardID: J.string().required().trim(),
   userID: J.string().required().trim(),
 })
+
+export const categoryUpdateSchema = J.object({
+  categoryID: J.string().required().trim(),
+  boardID: J.string().required().trim(),
+  data: {
+    title: J.string().min(1).max(40).required().trim(),
+  },
+})

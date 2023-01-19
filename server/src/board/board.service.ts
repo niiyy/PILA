@@ -1,6 +1,7 @@
 import { Types } from 'mongoose'
-import { BoardCreation } from 'types/board'
+import { BoardCreation, BoardUpdate } from 'types/board'
 import UserModel from '../user/user.model'
+import boardModel from './board.model'
 import BoardModel from './board.model'
 import boardValidator from './board.validator'
 
@@ -114,6 +115,29 @@ class BoardService {
     }
   }
 
+  public async idUserBoardAuthor({
+    boardID,
+    userID,
+  }: {
+    boardID: string
+    userID: string
+  }) {
+    try {
+      const board = await BoardModel.exists({
+        _id: boardID,
+        author: userID,
+      })
+
+      if (!board) {
+        throw new Error('User is not the author !')
+      }
+
+      return board
+    } catch (error) {
+      throw new Error('User cant delete this !')
+    }
+  }
+
   public async doesBoardHaveUser({
     boardID,
     userID,
@@ -135,7 +159,42 @@ class BoardService {
 
       return board
     } catch (error) {
-      throw new Error('User cant delete the category')
+      throw new Error('User cant delete this !')
+    }
+  }
+
+  public async update({
+    data: BoardData,
+    userID,
+    boardID,
+  }: BoardUpdate & { userID: string }) {
+    const { isValid, data, error } = boardValidator.validateUpdate({
+      data: BoardData,
+      boardID,
+    })
+
+    if (!isValid) {
+      throw new Error(error?.message)
+    }
+
+    try {
+      await this.idUserBoardAuthor({
+        boardID,
+        userID,
+      })
+
+      const boardUpdated = await boardModel.findOneAndUpdate(
+        {
+          _id: boardID,
+        },
+        {
+          title: data.data.title,
+        }
+      )
+
+      return boardUpdated
+    } catch (error) {
+      throw new Error('Cant update the board')
     }
   }
 }

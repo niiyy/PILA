@@ -31,4 +31,25 @@ CardModel.pre('save', async function (done) {
   }
 })
 
+CardModel.pre('findOneAndDelete', async function (done) {
+  const _id = this.getFilter()._id
+  const categoryID = this.getFilter().categoryID
+
+  try {
+    await CategoryModel.findOneAndUpdate(
+      {
+        ca: _id,
+      },
+      {
+        $pull: {
+          cards: _id,
+        },
+      }
+    )
+    done()
+  } catch (error) {
+    done(new Error('cant delete the user board'))
+  }
+})
+
 export default model('card', CardModel)
