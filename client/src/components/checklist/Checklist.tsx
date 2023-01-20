@@ -3,21 +3,13 @@ import ChecklistItem, { CheckListItemProps } from './components/ChecklistItem'
 
 export interface CheckListProps {
   items: CheckListItemProps[]
-  checkedItems: string[]
-  handleCheckedItems: Dispatch<React.SetStateAction<string[]>>
 }
 
-const Checklist = ({
-  items,
-  checkedItems,
-  handleCheckedItems,
-}: CheckListProps) => {
-  const handleItemClicked = (id: string) => {}
-
+const Checklist = ({ items }: CheckListProps) => {
   return (
     <div className="checklist__container">
       {items.map((item) => (
-        <ChecklistItem {...item} />
+        <ChecklistItem key={item.id} {...item} />
       ))}
     </div>
   )

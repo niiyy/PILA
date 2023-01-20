@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CheckList from '../../checklist/Checklist'
 
 export interface PasswordStrengthProps {
@@ -6,18 +6,32 @@ export interface PasswordStrengthProps {
 }
 
 const PasswordStrength = ({ password }: PasswordStrengthProps) => {
-  const [checkedItems, handleCheckedItems] = useState<string[]>([])
+  const [min8Chars, setMin8Chars] = useState(false)
+  const [min1SpecialChar, setMin1SpecialChar] = useState(false)
 
-  password
+  useEffect(() => {
+    if (password.length >= 8) {
+      setMin8Chars(true)
+    } else {
+      setMin8Chars(false)
+    }
+  }, [password])
+
   return (
     <div className="password_strength">
       <CheckList
         items={[
-          { label: 'Minimum 8 caracteres', id: 'min_8_chars' },
-          { label: 'Minimum 1 caractere spécial', id: 'min_1_special_char' },
+          {
+            label: 'Minimum 8 caracteres',
+            id: 'min_8_chars',
+            checked: min8Chars,
+          },
+          {
+            label: 'Minimum 1 caractere spécial',
+            id: 'min_1_special_char',
+            checked: min1SpecialChar,
+          },
         ]}
-        checkedItems={checkedItems}
-        handleCheckedItems={handleCheckedItems}
       />
     </div>
   )

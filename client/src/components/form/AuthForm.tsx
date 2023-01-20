@@ -5,13 +5,18 @@ import Input from '../input/Input'
 import PasswordStrength from './components/PasswordStrength'
 
 const AuthForm = () => {
-  const [password, setPassword] = useState<string>('abcdefghi16')
+  const [password, setPassword] = useState<string>('')
 
   return (
     <form className="authform__container">
       <Input label="Username" placeholder="Username" Icon={<IoConstruct />} />
       <Input label="E-mail" placeholder="E-mail" Icon={<IoConstruct />} />
-      <Input label="Password" placeholder="Password" Icon={<IoConstruct />} />
+      <Input
+        onChange={(e) => setPassword(e.target.value)}
+        label="Password"
+        placeholder="Password"
+        Icon={<IoConstruct />}
+      />
       <PasswordStrength password={password} />
 
       <Button label="S'inscrire" colorType="primary" />
