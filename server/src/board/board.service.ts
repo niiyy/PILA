@@ -12,8 +12,8 @@ class BoardService {
     _id,
     userID,
   }: {
-    _id: Types.ObjectId
-    userID: Types.ObjectId
+    _id: string
+    userID: string
   }): Promise<any> {
     try {
       const user = await UserModel.findOne({ userID, boards: { $in: _id } })

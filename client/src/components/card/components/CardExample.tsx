@@ -1,9 +1,9 @@
 import React from 'react'
 import { AiOutlineCheck } from 'react-icons/ai'
 
-const CardExample = () => {
+const CardExample = ({ completed }: { completed: boolean }) => {
   return (
-    <div className="card__example">
+    <div className={`card__example ${completed ? '--completed' : ''}`}>
       <header className="card__header">
         <div className="chips__wrapper">
           <div className="chips yellow">Idée</div>

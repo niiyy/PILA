@@ -1,6 +1,7 @@
 import React from 'react'
 import { CategoryProps } from '../../types/category'
 import Card from '../card/Card'
+import CreateCard from './components/CreateCard'
 
 const Category = ({ data }: CategoryProps) => {
   const { title, color } = data
@@ -18,6 +19,7 @@ const Category = ({ data }: CategoryProps) => {
           <h2>{title}</h2>
         </div>
       </header>
+      <CreateCard />
 
       <div className="category__content">
         <Card />

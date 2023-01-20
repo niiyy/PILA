@@ -6,6 +6,19 @@ import AuthService from './auth.service'
 
 const R = Router()
 
+R.get(
+  '/checkToken',
+  AuthService.validateToken,
+  (req: Request, res: Response) => {
+    const { userID } = res.locals
+
+    res.status(HTTPCode.OK).json({
+      ok: true,
+      data: userID,
+    })
+  }
+)
+
 R.post('/register', async (req: Request, res: Response) => {
   const { username, email, password } = req.body
 
@@ -28,7 +41,7 @@ R.post('/register', async (req: Request, res: Response) => {
   }
 })
 
-R.get('/login', async (req: Request, res: Response) => {
+R.post('/login', async (req: Request, res: Response) => {
   const { email, password } = req.body
 
   const isDataValid = UserValidator.validateLogin({

@@ -1,31 +1,11 @@
 import API from '../base/API'
 import { JsonResponse } from '../base/API'
 
-class BoardAPI extends API {
-  BoardAPIEndpoint: string
+class CardAPI extends API {
+  CardAPIEndpoint: string
   constructor() {
     super()
-    this.BoardAPIEndpoint = 'board'
-  }
-
-  public async get({
-    data,
-    signal,
-  }: {
-    signal: AbortSignal
-    data: any
-  }): Promise<JsonResponse | void> {
-    try {
-      const res = await super._get({
-        uri: `${this.BoardAPIEndpoint}`,
-        signal,
-        data,
-      })
-
-      return res
-    } catch (error) {
-      throw new Error(error as string)
-    }
+    this.CardAPIEndpoint = 'card'
   }
 
   public async create({
@@ -37,7 +17,7 @@ class BoardAPI extends API {
   }): Promise<JsonResponse | void> {
     try {
       const res = await super._post({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CardAPIEndpoint}`,
         signal,
         data,
       })
@@ -57,7 +37,7 @@ class BoardAPI extends API {
   }): Promise<JsonResponse | void> {
     try {
       const res = await super._put({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CardAPIEndpoint}`,
         signal,
         data,
       })
@@ -77,7 +57,7 @@ class BoardAPI extends API {
   }): Promise<JsonResponse | void> {
     try {
       const res = await super._delete({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CardAPIEndpoint}`,
         signal,
         data,
       })
@@ -89,4 +69,4 @@ class BoardAPI extends API {
   }
 }
 
-export default new BoardAPI()
+export default new CardAPI()

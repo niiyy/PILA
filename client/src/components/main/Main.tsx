@@ -1,5 +1,6 @@
 import React from 'react'
 import CardExample from '../card/components/CardExample'
+import Features from '../sections/Features'
 import Tip from './components/Tip'
 
 const Main = () => {
@@ -19,49 +20,14 @@ const Main = () => {
       </div>
       <div className="img__wrapper">
         <Tip type="review" />
-        <CardExample />
+        <CardExample completed={true} />
         <img
-          src="https://media.discordapp.net/attachments/1004099319726616596/1065692641695637504/image.png?width=1213&height=682"
+          src="https://media.discordapp.net/attachments/1058102861331955873/1066038017816547368/image.png?width=1920&height=1080"
           alt="hero image"
           className="main__hero__img"
         />
       </div>
-      <div className="img__wrapper">
-        <Tip type="review" />
-        <CardExample />
-        <img
-          src="https://media.discordapp.net/attachments/1004099319726616596/1065692641695637504/image.png?width=1213&height=682"
-          alt="hero image"
-          className="main__hero__img"
-        />
-      </div>
-      <div className="img__wrapper">
-        <Tip type="review" />
-        <CardExample />
-        <img
-          src="https://media.discordapp.net/attachments/1004099319726616596/1065692641695637504/image.png?width=1213&height=682"
-          alt="hero image"
-          className="main__hero__img"
-        />
-      </div>
-      <div className="img__wrapper">
-        <Tip type="review" />
-        <CardExample />
-        <img
-          src="https://media.discordapp.net/attachments/1004099319726616596/1065692641695637504/image.png?width=1213&height=682"
-          alt="hero image"
-          className="main__hero__img"
-        />
-      </div>
-      <div className="img__wrapper">
-        <Tip type="review" />
-        <CardExample />
-        <img
-          src="https://media.discordapp.net/attachments/1004099319726616596/1065692641695637504/image.png?width=1213&height=682"
-          alt="hero image"
-          className="main__hero__img"
-        />
-      </div>
+      <Features />
     </main>
   )
 }

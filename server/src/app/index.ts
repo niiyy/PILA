@@ -4,15 +4,19 @@ import express, { Application as ApplicationType } from 'express'
 import Routes from '../routes'
 import { customHeaders } from '../utils/custom.headers'
 import { logger } from '../utils/logger'
+import morgan from 'morgan'
 
 const app: ApplicationType = express()
 
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN,
+    methods: 'GET,HEAD,PUT,POST,DELETE',
+    credentials: true,
   })
 )
 
+app.use(morgan('dev'))
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

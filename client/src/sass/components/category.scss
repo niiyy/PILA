@@ -4,6 +4,21 @@
   gap: 15px;
   height: 100%;
 
+  .category__create__card {
+    background-color: $special-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: $medium-border-radius;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $primary-hover-bg;
+    }
+  }
+
   .category__header {
     display: flex;
     align-items: center;

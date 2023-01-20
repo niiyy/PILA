@@ -17,7 +17,7 @@ const Input = forwardRef(
     return (
       <div className="input__wrapper">
         {label && <label htmlFor="input">{label}</label>}
-        <div className="body">
+        <div className="input__body">
           <input
             spellCheck="false"
             id={`input ${id}`}

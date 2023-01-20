@@ -10,28 +10,21 @@ export interface APIT<T = any> {
   data?: T
 }
 
-export interface GetAPI<T = any> extends APIT<T> {}
-
-export interface PostAPI<T = any> extends APIT<T> {}
+export interface ExtendedAPI extends Omit<APIT, 'uri'> {}
 
 class API {
-  API_URL: string
-  API_ENDPOINT: string
+  private API_URL: string
+  private API_ENDPOINT: string
   constructor() {
     this.API_URL = 'http://localhost:4000'
     this.API_ENDPOINT = 'api/v1'
   }
 
-  protected async get({
-    uri,
-    signal,
-    data: RequestData,
-  }: GetAPI): Promise<JsonResponse | void> {
+  protected async _get({ uri, signal }: APIT): Promise<JsonResponse | void> {
     try {
       const response = await fetch(
         `${this.API_URL}/${this.API_ENDPOINT}/${uri}`,
         {
-          body: JSON.stringify(RequestData),
           signal,
           method: 'get',
           credentials: 'include',
@@ -42,20 +35,69 @@ class API {
 
       return data
     } catch (error) {
+      console.log(error)
       throw new Error(`ERROR while getting ${uri}`)
     }
   }
 
-  protected async post<T>({
+  protected async _post({
     uri,
     signal,
-    data,
-  }: PostAPI<T>): Promise<JsonResponse | void> {
+    data = {},
+  }: APIT): Promise<JsonResponse | void> {
     try {
       const res = await fetch(`${this.API_URL}/${this.API_ENDPOINT}/${uri}`, {
         body: JSON.stringify(data),
         signal,
         method: 'post',
+        credentials: 'include',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      })
+
+      const response = await res.json()
+
+      return response
+    } catch (error) {
+      throw new Error(`ERROR while posting ${uri}`)
+    }
+  }
+
+  protected async _put<T>({
+    uri,
+    signal,
+    data = {},
+  }: APIT): Promise<JsonResponse | void> {
+    try {
+      const res = await fetch(`${this.API_URL}/${this.API_ENDPOINT}/${uri}`, {
+        body: JSON.stringify(data),
+        signal,
+        method: 'put',
+        credentials: 'include',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      })
+
+      const response = await res.json()
+
+      return response
+    } catch (error) {
+      throw new Error(`ERROR while posting ${uri}`)
+    }
+  }
+
+  protected async _delete<T>({
+    uri,
+    signal,
+    data = {},
+  }: APIT): Promise<JsonResponse | void> {
+    try {
+      const res = await fetch(`${this.API_URL}/${this.API_ENDPOINT}/${uri}`, {
+        body: JSON.stringify(data),
+        signal,
+        method: 'delete',
         credentials: 'include',
         headers: {
           'Content-type': 'application/json',

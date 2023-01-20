@@ -5,12 +5,12 @@ import BoardService from './board.service'
 
 const R = Router()
 
-R.get('/', async (req: Request, res: Response) => {
-  const { _id } = req.body
+R.get('/:id', async (req: Request, res: Response) => {
+  const { id } = req.params
   const { userID } = res.locals
 
   try {
-    const board = await BoardService.get({ _id, userID })
+    const board = await BoardService.get({ _id: id, userID })
 
     res.status(HTTPCode.ACCEPTED).json({
       ok: true,

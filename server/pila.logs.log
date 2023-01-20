@@ -526,3 +526,59 @@
 {"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-19T13:06:42.056Z"}
 {"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-19T13:15:26.411Z"}
 {"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-19T13:15:27.583Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:32:05.455Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:32:07.489Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:40:36.611Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:40:37.756Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:41:26.368Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:41:27.393Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:41:58.186Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:41:59.333Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:46:30.237Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:46:43.981Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:46:45.040Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:47:40.658Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:47:41.746Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:47:58.660Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:47:59.626Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:48:55.831Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:48:56.982Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:49:43.305Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:49:44.312Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:50:20.692Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:50:21.694Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:50:47.135Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:50:48.145Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T11:54:52.515Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T11:54:58.645Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:25:31.192Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:25:32.433Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:26:01.397Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:26:02.469Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:26:42.030Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:26:46.241Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:26:56.929Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:26:57.972Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:27:09.427Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:27:10.462Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:27:21.778Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:27:22.990Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:27:45.659Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:27:46.773Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:28:12.659Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:28:13.803Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:34:46.266Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:34:47.357Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T12:47:57.143Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T12:48:02.205Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T13:14:16.711Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T13:14:21.785Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T13:15:29.685Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T13:15:30.792Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T13:16:40.757Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T13:16:41.746Z"}
+{"level":"error","message":"couldn't find the board Error: An error occured while trying to get board","timestamp":"2023-01-20T13:16:52.128Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T13:17:33.417Z"}
+{"level":"info","message":"API STARTED AT PORT 4040","timestamp":"2023-01-20T13:17:38.568Z"}
+{"level":"info","message":"DB: [pila] connected with succes !","timestamp":"2023-01-20T13:17:39.561Z"}
+{"level":"error","message":"couldn't find the board Error: An error occured while trying to get board","timestamp":"2023-01-20T13:17:46.228Z"}

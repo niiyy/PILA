@@ -19,7 +19,7 @@ const TextArea = forwardRef(
     return (
       <div className="textarea__wrapper">
         {label && <label htmlFor="textarea">{label}</label>}
-        <div className="body">
+        <div className="textarea__body">
           <textarea
             spellCheck="false"
             id={`textarea ${id}`}

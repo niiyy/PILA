@@ -19,6 +19,7 @@
     "@types/jest": "^29.2.5",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.4",
     "@types/supertest": "^2.0.12",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.0",
@@ -35,6 +36,7 @@
     "joi": "^17.7.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.3",
+    "morgan": "^1.10.0",
     "supertest": "^6.3.3",
     "ts-jest": "^29.0.5",
     "winston": "^3.8.2"

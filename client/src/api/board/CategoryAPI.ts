@@ -1,11 +1,11 @@
 import API from '../base/API'
 import { JsonResponse } from '../base/API'
 
-class BoardAPI extends API {
-  BoardAPIEndpoint: string
+class CategoryAPI extends API {
+  CategoryAPIEndpoint: string
   constructor() {
     super()
-    this.BoardAPIEndpoint = 'board'
+    this.CategoryAPIEndpoint = 'category'
   }
 
   public async get({
@@ -17,7 +17,7 @@ class BoardAPI extends API {
   }): Promise<JsonResponse | void> {
     try {
       const res = await super._get({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CategoryAPIEndpoint}`,
         signal,
         data,
       })
@@ -37,7 +37,7 @@ class BoardAPI extends API {
   }): Promise<JsonResponse | void> {
     try {
       const res = await super._post({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CategoryAPIEndpoint}`,
         signal,
         data,
       })
@@ -57,7 +57,7 @@ class BoardAPI extends API {
   }): Promise<JsonResponse | void> {
     try {
       const res = await super._put({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CategoryAPIEndpoint}`,
         signal,
         data,
       })
@@ -77,7 +77,7 @@ class BoardAPI extends API {
   }): Promise<JsonResponse | void> {
     try {
       const res = await super._delete({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CategoryAPIEndpoint}`,
         signal,
         data,
       })
@@ -89,4 +89,4 @@ class BoardAPI extends API {
   }
 }
 
-export default new BoardAPI()
+export default new CategoryAPI()

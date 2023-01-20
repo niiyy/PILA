@@ -86,6 +86,22 @@
       width: 90vw;
       overflow-x: scroll;
 
+      .board__category__create {
+        width: 350px;
+        border-radius: $normal-border-radius;
+        border: $normal-border;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $special-color;
+        }
+      }
+
       /* width */
       &::-webkit-scrollbar {
         height: 10px;
@@ -117,8 +133,14 @@
   &.create {
     background: none;
     outline: $normal-border;
-    color: lightblue;
     font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($special-color, 0.5);
+      color: white;
+    }
   }
 }
 

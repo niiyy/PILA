@@ -3,8 +3,14 @@ import { VscBell, VscListFilter } from 'react-icons/vsc'
 import { RiDashboardLine, RiMoreFill } from 'react-icons/ri'
 import { RxDashboard } from 'react-icons/rx'
 import Category from '../category/Category'
+import { useEffect } from 'react'
+import CreateCategory from '../category/components/CreateCategory'
 
 const Board = () => {
+  useEffect(() => {
+    console.log('Refresh')
+  })
+
   return (
     <article className="board__container">
       <LeftNavBar />
@@ -34,6 +40,7 @@ const Board = () => {
           <Category data={{ color: 'lightblue', title: 'Idée' }} />
           <Category data={{ color: 'yellow', title: 'En cours' }} />
           <Category data={{ color: 'green', title: 'Fini' }} />
+          <CreateCategory />
         </div>
       </div>
     </article>
