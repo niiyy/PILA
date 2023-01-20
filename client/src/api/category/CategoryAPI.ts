@@ -1,21 +1,21 @@
-import API, { JsonResponse } from '../base/API'
+import API, { ExtendedAPI, IApiResponse } from '../base/API'
 
-class CardAPI extends API {
-  CardAPIEndpoint: string
+class CategoryAPI extends API {
+  CategoryAPIEndpoint: string
   constructor() {
     super()
-    this.CardAPIEndpoint = 'card'
+    this.CategoryAPIEndpoint = 'category'
   }
 
   public async create({
+    data,
     signal,
-  }: {
-    signal: AbortSignal
-  }): Promise<JsonResponse | void> {
+  }: ExtendedAPI): Promise<IApiResponse | void> {
     try {
       const res = await super._post({
-        uri: `${this.CardAPIEndpoint}`,
+        uri: `${this.CategoryAPIEndpoint}`,
         signal,
+        data,
       })
 
       return res
@@ -27,13 +27,10 @@ class CardAPI extends API {
   public async update({
     data,
     signal,
-  }: {
-    signal: AbortSignal
-    data: any
-  }): Promise<JsonResponse | void> {
+  }: ExtendedAPI): Promise<IApiResponse | void> {
     try {
       const res = await super._put({
-        uri: `${this.CardAPIEndpoint}`,
+        uri: `${this.CategoryAPIEndpoint}`,
         signal,
         data,
       })
@@ -47,13 +44,10 @@ class CardAPI extends API {
   public async delete({
     data,
     signal,
-  }: {
-    signal: AbortSignal
-    data: any
-  }): Promise<JsonResponse | void> {
+  }: ExtendedAPI): Promise<IApiResponse | void> {
     try {
       const res = await super._delete({
-        uri: `${this.CardAPIEndpoint}`,
+        uri: `${this.CategoryAPIEndpoint}`,
         signal,
         data,
       })
@@ -65,4 +59,4 @@ class CardAPI extends API {
   }
 }
 
-export default new CardAPI()
+export default new CategoryAPI()

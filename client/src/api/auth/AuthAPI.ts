@@ -1,4 +1,4 @@
-import API, { ExtendedAPI, JsonResponse } from '../base/API'
+import API, { ExtendedAPI, IApiResponse } from '../base/API'
 
 class AuthAPI extends API {
   private AuthAPIEndpoint: string
@@ -10,10 +10,7 @@ class AuthAPI extends API {
   public async createUser({
     data,
     signal,
-  }: {
-    signal: AbortSignal
-    data: any
-  }): Promise<JsonResponse | void> {
+  }: ExtendedAPI): Promise<IApiResponse | void> {
     try {
       const res = await super._post({
         uri: `${this.AuthAPIEndpoint}/register`,
@@ -30,10 +27,7 @@ class AuthAPI extends API {
   public async loginUser({
     data,
     signal,
-  }: {
-    signal: AbortSignal
-    data: any
-  }): Promise<JsonResponse | void> {
+  }: ExtendedAPI): Promise<IApiResponse | void> {
     try {
       const res = await super._post({
         uri: `${this.AuthAPIEndpoint}/login`,
@@ -49,8 +43,7 @@ class AuthAPI extends API {
 
   public async isUserConnected({
     signal,
-    data,
-  }: ExtendedAPI): Promise<JsonResponse | void> {
+  }: ExtendedAPI): Promise<IApiResponse | void> {
     try {
       const res = await super._get({
         uri: `${this.AuthAPIEndpoint}/checkToken`,

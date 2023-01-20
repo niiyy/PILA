@@ -1,4 +1,4 @@
-export interface JsonResponse<T = any> {
+export interface IApiResponse<T = any> {
   ok: string
   data?: T
   message?: string
@@ -20,7 +20,7 @@ class API {
     this.API_ENDPOINT = 'api/v1'
   }
 
-  protected async _get({ uri, signal }: APIT): Promise<JsonResponse | void> {
+  protected async _get({ uri, signal }: APIT): Promise<IApiResponse | void> {
     try {
       const response = await fetch(
         `${this.API_URL}/${this.API_ENDPOINT}/${uri}`,
@@ -44,7 +44,7 @@ class API {
     uri,
     signal,
     data = {},
-  }: APIT): Promise<JsonResponse | void> {
+  }: APIT): Promise<IApiResponse | void> {
     try {
       const res = await fetch(`${this.API_URL}/${this.API_ENDPOINT}/${uri}`, {
         body: JSON.stringify(data),
@@ -68,7 +68,7 @@ class API {
     uri,
     signal,
     data = {},
-  }: APIT): Promise<JsonResponse | void> {
+  }: APIT): Promise<IApiResponse | void> {
     try {
       const res = await fetch(`${this.API_URL}/${this.API_ENDPOINT}/${uri}`, {
         body: JSON.stringify(data),
@@ -92,7 +92,7 @@ class API {
     uri,
     signal,
     data = {},
-  }: APIT): Promise<JsonResponse | void> {
+  }: APIT): Promise<IApiResponse | void> {
     try {
       const res = await fetch(`${this.API_URL}/${this.API_ENDPOINT}/${uri}`, {
         body: JSON.stringify(data),

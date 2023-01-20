@@ -1,39 +1,19 @@
 import API, { ExtendedAPI, IApiResponse } from '../base/API'
 
-export interface IGetBoard extends Omit<ExtendedAPI, 'data'> {
-  boardID: string
-}
-
-class BoardAPI extends API {
-  BoardAPIEndpoint: string
+class CardAPI extends API {
+  CardAPIEndpoint: string
   constructor() {
     super()
-    this.BoardAPIEndpoint = 'board'
-  }
-
-  public async get({
-    signal,
-    boardID,
-  }: IGetBoard): Promise<IApiResponse | void> {
-    try {
-      const res = await super._get({
-        uri: `${this.BoardAPIEndpoint}/${boardID}`,
-        signal,
-      })
-
-      return res
-    } catch (error) {
-      throw new Error(error as string)
-    }
+    this.CardAPIEndpoint = 'card'
   }
 
   public async create({
-    data,
     signal,
+    data,
   }: ExtendedAPI): Promise<IApiResponse | void> {
     try {
       const res = await super._post({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CardAPIEndpoint}`,
         signal,
         data,
       })
@@ -50,7 +30,7 @@ class BoardAPI extends API {
   }: ExtendedAPI): Promise<IApiResponse | void> {
     try {
       const res = await super._put({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CardAPIEndpoint}`,
         signal,
         data,
       })
@@ -67,7 +47,7 @@ class BoardAPI extends API {
   }: ExtendedAPI): Promise<IApiResponse | void> {
     try {
       const res = await super._delete({
-        uri: `${this.BoardAPIEndpoint}`,
+        uri: `${this.CardAPIEndpoint}`,
         signal,
         data,
       })
@@ -79,4 +59,4 @@ class BoardAPI extends API {
   }
 }
 
-export default new BoardAPI()
+export default new CardAPI()
