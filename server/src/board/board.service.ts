@@ -1,8 +1,7 @@
 import { Types } from 'mongoose'
 import { BoardCreation, BoardUpdate } from 'types/board'
 import UserModel from '../user/user.model'
-import boardModel from './board.model'
-import BoardModel from './board.model'
+import { default as boardModel, default as BoardModel } from './board.model'
 import boardValidator from './board.validator'
 
 class BoardService {

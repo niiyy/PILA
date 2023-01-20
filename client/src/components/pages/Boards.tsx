@@ -1,4 +1,3 @@
-import React from 'react'
 import BoardCard from '../board/components/BoardCard'
 import CreateBoardCard from '../board/components/CreateBoardCard'
 

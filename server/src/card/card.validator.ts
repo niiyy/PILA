@@ -1,6 +1,4 @@
-import { ValidationError } from 'joi'
-import { BoardCreation } from '../types/board'
-import { Card, CardCreation, CardDeletion, CardUpdate } from '../types/card'
+import { CardCreation, CardDeletion, CardUpdate } from '../types/card'
 import { Validation } from '../types/misc'
 import {
   cardCreationSchema,

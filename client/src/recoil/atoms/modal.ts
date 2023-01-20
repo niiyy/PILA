@@ -1,6 +1,6 @@
 import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { ATOMS_KEYS } from '..'
-import { IModalState, IModalStateData } from '../../types/modal'
+import { IModalState } from '../../types/modal'
 
 export const modalState = atom({
   key: ATOMS_KEYS.MODAL,

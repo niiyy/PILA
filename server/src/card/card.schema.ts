@@ -1,5 +1,4 @@
 import J from 'joi'
-import { Card, CardUpdate } from '../types/card'
 
 export const cardCreationSchema = J.object({
   content: J.string().min(1).max(300).trim().required(),

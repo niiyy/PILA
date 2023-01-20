@@ -1,8 +1,7 @@
 import boardService from '../board/board.service'
-import { Card, CardCreation, CardDeletion, CardUpdate } from '../types/card'
+import { CardCreation, CardDeletion, CardUpdate } from '../types/card'
+import { default as CardModel, default as cardModel } from './card.model'
 import CardValidator from './card.validator'
-import CardModel from './card.model'
-import cardModel from './card.model'
 
 class CardService {
   constructor() {}

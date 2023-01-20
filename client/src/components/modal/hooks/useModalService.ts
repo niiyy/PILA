@@ -1,5 +1,5 @@
 import { useModalState } from '../../../recoil/atoms/modal'
-import { IModalState, IModalStateData } from '../../../types/modal'
+import { IModalStateData } from '../../../types/modal'
 
 export const useModalService = () => {
   const [modal, setModal] = useModalState()

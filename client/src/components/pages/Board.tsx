@@ -1,10 +1,10 @@
-import LeftNavBar from '../leftNavBar/LeftNavBar'
-import { VscBell, VscListFilter } from 'react-icons/vsc'
-import { RiDashboardLine, RiMoreFill } from 'react-icons/ri'
-import { RxDashboard } from 'react-icons/rx'
-import Category from '../category/Category'
 import { useEffect } from 'react'
+import { RiDashboardLine } from 'react-icons/ri'
+import { RxDashboard } from 'react-icons/rx'
+import { VscListFilter } from 'react-icons/vsc'
+import Category from '../category/Category'
 import CreateCategory from '../category/components/CreateCategory'
+import LeftNavBar from '../leftNavBar/LeftNavBar'
 
 const Board = () => {
   useEffect(() => {

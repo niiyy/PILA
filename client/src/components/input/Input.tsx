@@ -1,9 +1,4 @@
-import React, {
-  ForwardedRef,
-  forwardRef,
-  InputHTMLAttributes,
-  useState,
-} from 'react'
+import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react'
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   Icon?: JSX.Element

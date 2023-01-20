@@ -1,8 +1,7 @@
-import React from 'react'
-import PillaWhite from '../../assets/pila/pila-white.svg'
-import { VscBell } from 'react-icons/vsc'
 import { RiSettings4Line } from 'react-icons/ri'
+import { VscBell } from 'react-icons/vsc'
 import AvatarPlaceHolder from '../../assets/misc/avatar.png'
+import PillaWhite from '../../assets/pila/pila-white.svg'
 
 const Header = () => {
   return (

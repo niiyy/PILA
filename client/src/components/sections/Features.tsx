@@ -1,8 +1,5 @@
-import React from 'react'
-import { AiFillAlert } from 'react-icons/ai'
-
-import Free from '../../assets/features/free.png'
 import Easy from '../../assets/features/easy.png'
+import Free from '../../assets/features/free.png'
 import Modern from '../../assets/features/modern.png'
 
 const Features = () => {

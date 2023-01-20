@@ -1,5 +1,4 @@
-import API, { ExtendedAPI } from '../base/API'
-import { JsonResponse } from '../base/API'
+import API, { ExtendedAPI, JsonResponse } from '../base/API'
 
 class AuthAPI extends API {
   private AuthAPIEndpoint: string

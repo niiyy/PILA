@@ -1,4 +1,3 @@
-import React from 'react'
 import { AiOutlineAppstoreAdd } from 'react-icons/ai'
 import { useModalService } from '../../modal/hooks/useModalService'
 

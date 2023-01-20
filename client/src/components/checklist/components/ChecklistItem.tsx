@@ -1,4 +1,3 @@
-import React, { Dispatch, MouseEventHandler } from 'react'
 import { FiCheck } from 'react-icons/fi'
 
 export interface CheckListItemProps {

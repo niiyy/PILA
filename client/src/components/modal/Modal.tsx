@@ -1,4 +1,3 @@
-import React from 'react'
 import { IoCloseOutline } from 'react-icons/io5'
 import { IModalStateData } from '../../types/modal'
 import CreateBoardContent from './components/CreateBoardContent'

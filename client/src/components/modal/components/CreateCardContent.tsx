@@ -1,7 +1,5 @@
-import React from 'react'
 import { IoCloudyNight } from 'react-icons/io5'
 import Button from '../../button/Button'
-import ButtonsGroup from '../../button/components/ButtonsGroup'
 import TextArea from '../../input/TextArea'
 
 const CreateCardContent = () => {

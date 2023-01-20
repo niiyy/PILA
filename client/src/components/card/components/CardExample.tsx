@@ -1,4 +1,3 @@
-import React from 'react'
 import { AiOutlineCheck } from 'react-icons/ai'
 
 const CardExample = ({ completed }: { completed: boolean }) => {

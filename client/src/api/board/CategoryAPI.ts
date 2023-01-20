@@ -1,5 +1,4 @@
-import API from '../base/API'
-import { JsonResponse } from '../base/API'
+import API, { JsonResponse } from '../base/API'
 
 class CategoryAPI extends API {
   CategoryAPIEndpoint: string
@@ -9,17 +8,14 @@ class CategoryAPI extends API {
   }
 
   public async get({
-    data,
     signal,
   }: {
     signal: AbortSignal
-    data: any
   }): Promise<JsonResponse | void> {
     try {
       const res = await super._get({
         uri: `${this.CategoryAPIEndpoint}`,
         signal,
-        data,
       })
 
       return res

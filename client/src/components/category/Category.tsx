@@ -1,4 +1,3 @@
-import React from 'react'
 import { CategoryProps } from '../../types/category'
 import Card from '../card/Card'
 import CreateCard from './components/CreateCard'

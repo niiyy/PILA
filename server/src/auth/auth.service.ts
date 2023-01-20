@@ -1,11 +1,10 @@
-import JWT from 'jsonwebtoken'
-import { ObjectId, Schema } from 'mongoose'
-import PasswordService from '../services/password.service'
-import { UserLogin, UserRegister } from 'types/user'
-import UserModel from '../user/user.model'
-import { HTTPCode, HTTPCodesTypes } from '../types/http'
-import { PromiseResponse } from 'types/misc'
 import { NextFunction, Request, Response } from 'express'
+import JWT from 'jsonwebtoken'
+import { PromiseResponse } from 'types/misc'
+import { UserLogin, UserRegister } from 'types/user'
+import PasswordService from '../services/password.service'
+import { HTTPCode } from '../types/http'
+import UserModel from '../user/user.model'
 import UserValidator from '../user/user.validator'
 
 class AuthService {

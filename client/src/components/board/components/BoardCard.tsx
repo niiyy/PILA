@@ -1,5 +1,3 @@
-import React from 'react'
-
 const BoardCard = () => {
   return (
     <article className="board__card__item">

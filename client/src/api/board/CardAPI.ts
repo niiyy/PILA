@@ -1,5 +1,4 @@
-import API from '../base/API'
-import { JsonResponse } from '../base/API'
+import API, { JsonResponse } from '../base/API'
 
 class CardAPI extends API {
   CardAPIEndpoint: string
@@ -9,17 +8,14 @@ class CardAPI extends API {
   }
 
   public async create({
-    data,
     signal,
   }: {
     signal: AbortSignal
-    data: any
   }): Promise<JsonResponse | void> {
     try {
       const res = await super._post({
         uri: `${this.CardAPIEndpoint}`,
         signal,
-        data,
       })
 
       return res

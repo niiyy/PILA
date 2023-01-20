@@ -1,8 +1,6 @@
-import React from 'react'
-import { VscBell } from 'react-icons/vsc'
-import AsideItem from './components/AsideItem'
 import { FiChevronDown } from 'react-icons/fi'
 import AvatarPlaceHolder from '../../assets/misc/avatar.png'
+import AsideItem from './components/AsideItem'
 
 const LeftNavBar = () => {
   return (

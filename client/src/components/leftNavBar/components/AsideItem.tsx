@@ -1,4 +1,3 @@
-import React from 'react'
 import { VscBell } from 'react-icons/vsc'
 
 const AsideItem = ({ active, label }: { active?: boolean; label: string }) => {

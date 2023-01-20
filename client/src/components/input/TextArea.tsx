@@ -1,10 +1,4 @@
-import React, {
-  ForwardedRef,
-  forwardRef,
-  InputHTMLAttributes,
-  TextareaHTMLAttributes,
-  useState,
-} from 'react'
+import { ForwardedRef, forwardRef, TextareaHTMLAttributes } from 'react'
 
 export interface TextAreaProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {

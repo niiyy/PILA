@@ -1,10 +1,10 @@
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import express, { Application as ApplicationType } from 'express'
+import morgan from 'morgan'
 import Routes from '../routes'
 import { customHeaders } from '../utils/custom.headers'
 import { logger } from '../utils/logger'
-import morgan from 'morgan'
 
 const app: ApplicationType = express()
 

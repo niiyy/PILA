@@ -1,4 +1,3 @@
-import React from 'react'
 import CardExample from '../card/components/CardExample'
 import Features from '../sections/Features'
 import Tip from './components/Tip'

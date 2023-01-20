@@ -1,5 +1,5 @@
-import CategoryModel from '../category/category.model'
 import { model, Schema, Types } from 'mongoose'
+import CategoryModel from '../category/category.model'
 
 const CardModel = new Schema(
   {

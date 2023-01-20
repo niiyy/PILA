@@ -1,6 +1,4 @@
-import React from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { MdOutlineAddBox } from 'react-icons/md'
 import { useModalService } from '../../modal/hooks/useModalService'
 
 const CreateCategory = () => {
