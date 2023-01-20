@@ -1,6 +1,10 @@
 const BoardCard = () => {
+  const handleNavigateToBoard = () => {
+    //
+  }
+
   return (
-    <article className="board__card__item">
+    <article onClick={handleNavigateToBoard} className="board__card__item">
       <h2>Apocalypse</h2>
     </article>
   )

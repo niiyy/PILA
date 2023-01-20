@@ -24,6 +24,12 @@
       outline: $input-focus-border;
     }
 
+    p {
+      font-size: 13px;
+      font-weight: 100;
+      cursor: pointer;
+    }
+
     input {
       color: white;
       height: 30px;

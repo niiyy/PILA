@@ -6,6 +6,8 @@ const Boards = () => {
     <div className="boards__container">
       <div className="boards__wrapper">
         <BoardCard />
+        <BoardCard />
+        <BoardCard />
         <CreateBoardCard />
       </div>
     </div>

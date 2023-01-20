@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { RiDashboardLine } from 'react-icons/ri'
 import { RxDashboard } from 'react-icons/rx'
 import { VscListFilter } from 'react-icons/vsc'
@@ -7,12 +7,16 @@ import CreateCategory from '../category/components/CreateCategory'
 import LeftNavBar from '../leftNavBar/LeftNavBar'
 
 const Board = () => {
-  useEffect(() => {
-    console.log('Refresh')
-  })
+  const [orderView, setOrderView] = useState<'list' | 'normal'>('normal')
+
+  const handleSwitchViewType = (view: 'list' | 'normal') => {
+    if (orderView === view) return
+
+    setOrderView(view)
+  }
 
   return (
-    <article className="board__container">
+    <article className={`board__container --${orderView}`}>
       <LeftNavBar />
 
       <div className="board__content__container">
@@ -26,10 +30,24 @@ const Board = () => {
 
           <div className="board__header__right">
             <div className="board__header__right__orders">
-              <div className="board__header__right__order board__header__right__order--active">
+              <div
+                onClick={() => handleSwitchViewType('normal')}
+                className={`board__header__right__order ${
+                  orderView === 'normal'
+                    ? 'board__header__right__order--active'
+                    : ''
+                }`}
+              >
                 <RxDashboard />
               </div>
-              <div className="board__header__right__order">
+              <div
+                onClick={() => handleSwitchViewType('list')}
+                className={`board__header__right__order ${
+                  orderView === 'list'
+                    ? 'board__header__right__order--active'
+                    : ''
+                }`}
+              >
                 <VscListFilter />
               </div>
             </div>

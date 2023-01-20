@@ -2,6 +2,7 @@
   display: flex;
   height: calc(100vh - 80px);
   overflow: hidden;
+  transition: 0.3s;
 
   &::before {
     content: '';
@@ -116,10 +117,26 @@
       }
     }
   }
+
+  &.--list {
+    .board__category__create {
+      width: 100% !important;
+      padding: 50px;
+    }
+
+    .board__cards__container {
+      flex-direction: column;
+
+      .board__card {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .board__card__item {
-  width: 200px;
+  min-width: 200px;
+  flex: 1;
   height: 100px;
   border-radius: $normal-border-radius;
   display: flex;
@@ -129,13 +146,17 @@
   font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:not(.create):hover {
+    background-color: rgba($special-color, 0.1);
+  }
 
   &.create {
     background: none;
     outline: $normal-border;
     font-size: 20px;
-    transition: 0.3s;
-    cursor: pointer;
 
     &:hover {
       background-color: rgba($special-color, 0.5);
